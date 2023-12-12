@@ -1,20 +1,21 @@
 import { getStoryblokApi } from "@storyblok/react/rsc";
+import { ISbStoriesParams } from "@storyblok/react";
+import StoryblokStory from "@storyblok/react/story";
 
 export default async function Home() {
   const { data } = await fetchData();
 
   return (
     <div>
-      <h1>Story: {data.story.name}</h1>
+      <StoryblokStory story={data.story} />
     </div>
   );
 }
 
 export async function fetchData() {
-  let sbParams: { version: "draft" | "published" | undefined } = {
-    version: "draft",
-  };
+  let sbParams: ISbStoriesParams = { version: "draft" };
+
   const storyblokApi = getStoryblokApi();
-  console.log(storyblokApi);
-  return storyblokApi.get(`cdn/stories/home`, sbParams);
+  const data = storyblokApi.get(`cdn/stories/home`, sbParams);
+  return data;
 }
