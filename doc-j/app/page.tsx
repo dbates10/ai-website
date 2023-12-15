@@ -1,13 +1,19 @@
 import { getStoryblokApi } from "@storyblok/react/rsc";
 import { ISbStoriesParams } from "@storyblok/react";
 import StoryblokStory from "@storyblok/react/story";
-
+import Hero from "@/components/Hero";
+import Feature from "@/components/Feature";
+import TextWithImage from "@/components/TextWithImage";
+import PartnersSection from "@/components/PartnersSection";
 export default async function Home() {
   const { data } = await fetchData();
 
   return (
     <div>
-      <StoryblokStory story={data.story} />
+      <Hero />
+      <Feature />
+      <TextWithImage />
+      <PartnersSection />
     </div>
   );
 }

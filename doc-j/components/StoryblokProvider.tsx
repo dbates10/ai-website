@@ -2,19 +2,13 @@
 "use client";
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import Page from "./Page";
-import Teaser from "./Teaser";
-import Feature from "./Feature";
-import Grid from "./Grid";
 import Navigation from "./Navigation";
-import Footer from "./Footer";
+import Hero from "./Hero";
 const token = process.env.NEXT_PUBLIC_STORYBLOK_API_TOKEN;
 const components = {
-  feature: Feature,
-  grid: Grid,
-  teaser: Teaser,
   page: Page,
   navigation: Navigation,
-  footer: Footer,
+  hero: Hero,
 };
 
 /** 2. Initialize it as usual */
