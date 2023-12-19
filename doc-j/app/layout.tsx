@@ -3,6 +3,7 @@ import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import StoryblokProvider from "../components/StoryblokProvider";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import AgeVerification from "@/components/AgeVerification";
 const token = process.env.NEXT_PUBLIC_STORYBLOK_API_TOKEN;
 
 storyblokInit({
@@ -26,9 +27,11 @@ export default function RootLayout({ children }: RootLayoutType) {
     <StoryblokProvider>
       <html lang="en">
         <body>
-          <Navigation />
-          {children}
-          <Footer />
+          <AgeVerification>
+            <Navigation />
+            {children}
+            <Footer />
+          </AgeVerification>
         </body>
       </html>
     </StoryblokProvider>

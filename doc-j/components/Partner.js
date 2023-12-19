@@ -5,11 +5,11 @@ const Partner = (props) => {
   return (
     <div className="flex justify-center">
       <Image
-        className="h-20 w-auto sm:h-10 sm:hidden"
-        src={props.image}
-        alt="Partner Image"
-        height={80}
-        width={150}
+        className="h-40 rounded-full shadow-xl my-8 w-auto"
+        src={props.src}
+        alt={props.alt}
+        height={160}
+        width={160}
       />
     </div>
   );

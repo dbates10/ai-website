@@ -19,22 +19,22 @@ const Footer = () => {
 
         {/*Contact Links*/}
         <div className="flex flex-col w-full md:w-1/3 py-8 items-start self-center">
-          <div classname="flex ">
+          <div className="flex flex-col mx-auto">
             <h4 className="text-sm md:col-span-2 font-thin font-ibm text-center md:text-left px-8 py-1">
-              <span className="flex flex-row gap-2 font-extrabold items-center">
+              <span className="flex flex-row gap-2 font-extrabold items-center justify-center md:justify-start">
                 <IoChatboxSharp /> Contact Us:
               </span>
             </h4>
             <p className="text-md font-thin font-clone text-center md:text-left px-8 py-2 text-white ">
               Call or Text:
             </p>
-            <p className="text-md font-thin font-ibm text-center md:text-left px-8 text-green-light ">
+            <p className="text-md font-thin font-ibm text-center md:text-left px-8 text-green ">
               <a href="tel:+15404801205">(540)-480-1205</a>
             </p>
             <p className="text-md font-thin font-clone text-center md:text-left px-8 py-2 text-white ">
               Email:
             </p>
-            <p className="text-md font-thin font-ibm text-center md:text-left px-8 text-green-light ">
+            <p className="text-md font-thin font-ibm text-center md:text-left px-8 text-green ">
               <a href="mailto: docjslaboratory@gmail.com">
                 Docjslaboratory@gmail.com
               </a>
@@ -50,33 +50,33 @@ const Footer = () => {
             </span>
           </h4>
           <Link href="https://www.instagram.com/docjs.laboratory/">
-            <p className="text-md font-thin font-ibm text-center md:text-left px-8 py-2 text-green-light ">
-              Doc J&apos;s Lab
+            <p className="text-md font-thin font-ibm text-center md:text-left px-8 py-2 text-green ">
+              @DocJs.Laboratory
             </p>
           </Link>
           <Link href="https://www.instagram.com/waterbearfarms/">
-            <p className="text-md font-thin font-ibm text-center md:text-left px-8 py-2 text-green-light ">
-              Waterbear Farms
+            <p className="text-md font-thin font-ibm text-center md:text-left px-8 py-2 text-green ">
+              @WaterbearFarms
             </p>
           </Link>
           <Link href="https://www.instagram.com/moglee_cultivated_/">
-            <p className="text-md font-thin font-ibm text-center md:text-left px-8 py-2 text-green-light ">
-              Moglee Cultivated
+            <p className="text-md font-thin font-ibm text-center md:text-left px-8 py-2 text-green ">
+              @Moglee_Cultivated
             </p>
           </Link>
           <Link href="https://www.instagram.com/gamblesgoods/">
-            <p className="text-md font-thin font-ibm text-center md:text-left px-8 py-2 text-green-light ">
-              Gamble&apos;s Goods
+            <p className="text-md font-thin font-ibm text-center md:text-left px-8 py-2 text-green ">
+              @GamblesGoods
             </p>
           </Link>
           <Link href="https://www.instagram.com/gamblesgarden_/">
-            <p className="text-md font-thin font-ibm text-center md:text-left px-8 py-2 text-green-light ">
-              Gamble&apos;s Garden
+            <p className="text-md font-thin font-ibm text-center md:text-left px-8 py-2 text-green ">
+              @GamblesGarden_
             </p>
           </Link>
         </div>
       </div>
-      <div className="flex justify-center py-2 bg-purp-dark text-white mx-auto max-w-[1440px] text-center">
+      <div className="flex justify-center py-2 bg-purp text-white mx-auto max-w-[1440px] text-center">
         <p>
           © Copyright 2024 Doc J&apos;s Laboratory <br /> All Rights Reserved
         </p>

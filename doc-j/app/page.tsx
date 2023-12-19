@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import Feature from "@/components/Feature";
 import TextWithImage from "@/components/TextWithImage";
 import PartnersSection from "@/components/PartnersSection";
+import Newsletter from "@/components/Newsletter";
 export default async function Home() {
   const { data } = await fetchData();
 
@@ -14,6 +15,7 @@ export default async function Home() {
       <Feature />
       <TextWithImage />
       <PartnersSection />
+      <Newsletter />
     </div>
   );
 }
