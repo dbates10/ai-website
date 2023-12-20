@@ -164,7 +164,7 @@ const Navigation = () => {
           <div className="fixed inset-0 z-50 overflow-hidden">
             <div
               ref={navRef}
-              className={`absolute w-3/4 h-screen top-0 right-0 transition-transform transform origin-top-right duration-500 md:hidden ${
+              className={`absolute w-2/3 h-screen top-0 right-0 transition-transform transform origin-top-right duration-500 md:hidden ${
                 openMenu ? "translateX(0)" : "translateX(100%)"
               }`}
             >
