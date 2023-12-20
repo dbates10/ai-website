@@ -68,7 +68,7 @@ const Navigation = () => {
                   <div className="absolute z-10 mt-8 bg-white shadow-lg border border-gray-200 rounded-md py-1">
                     <Link
                       className="text-base font-medium text-gray-500 hover:text-white hover:bg-gradient-to-r from-purp to-green duration-300 block px-4 py-2"
-                      href="/category/doc"
+                      href="/category/docj"
                     >
                       <button onClick={() => setOpenCategories(false)}>
                         Doc J&apos;s Laboratory
@@ -179,7 +179,7 @@ const Navigation = () => {
                         <div className=" ml-2 z-10">
                           <Link
                             className="text-base font-medium text-white hover:text-white hover:bg-gradient-to-r from-purp to-green duration-300 block px-4 py-2"
-                            href="/category/doc"
+                            href="/category/docj"
                           >
                             <button onClick={() => setOpenMenu(false)}>
                               Doc J&apos;s Laboratory

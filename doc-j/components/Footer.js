@@ -76,10 +76,8 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-      <div className="flex justify-center py-2 bg-purp text-white mx-auto max-w-[1440px] text-center">
-        <p>
-          © Copyright 2024 Doc J&apos;s Laboratory <br /> All Rights Reserved
-        </p>
+      <div className="flex justify-center py-2 bg-purp text-black mx-auto max-w-[1440px] text-center">
+        <p>© Copyright 2024 Doc J&apos;s Laboratory All Rights Reserved</p>
       </div>
     </>
   );
