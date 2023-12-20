@@ -11,9 +11,16 @@ const Navigation = () => {
   const navRef = useRef(null);
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (drawerRef.current && !drawerRef.current.contains(event.target)) {
-        // Close the drawer
-        setOpenCategories(false);
+      if (window.innerWidth >= 768) {
+        // Check for mobile screen size
+        if (drawerRef.current && !drawerRef.current.contains(event.target)) {
+          console.log("Desktop: Clicked outside of drawer");
+          setOpenCategories(false);
+        }
+        if (navRef.current && !navRef.current.contains(event.target)) {
+          console.log("Mobile: Clicked outside of nav");
+          setOpenMenu(false);
+        }
       }
     };
 
@@ -21,20 +28,7 @@ const Navigation = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [drawerRef]);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (navRef.current && !navRef.current.contains(event.target)) {
-        setOpenMenu(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [navRef]);
+  }, [navRef, drawerRef]);
 
   return (
     <>
@@ -52,7 +46,7 @@ const Navigation = () => {
                   width={150}
                 />
                 <Image
-                  className="h-20 w-auto sm:h-10 sm:hidden"
+                  className="h-10 w-auto sm:hidden"
                   src="/logo.svg"
                   alt="Storyblok"
                   height={80}
