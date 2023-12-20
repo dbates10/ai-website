@@ -4,15 +4,6 @@ import StoryblokProvider from "../components/StoryblokProvider";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import AgeVerification from "@/components/AgeVerification";
-const token = process.env.NEXT_PUBLIC_STORYBLOK_API_TOKEN;
-
-storyblokInit({
-  accessToken: token,
-  use: [apiPlugin],
-  apiOptions: {
-    region: "us",
-  },
-});
 
 export const metadata = {
   title: "Doc J's Laboratory",
