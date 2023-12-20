@@ -7,7 +7,7 @@ const AnnouncementsPage = () => {
   return (
     <>
       <Container>
-        <h1 className="text-7xl text-purp-dark font-clone my-4">
+        <h1 className="text-4xl md:text-7xl text-purp-dark font-clone my-4">
           Announcements
         </h1>
         {announcements.map((announcement, index) => (
