@@ -1,11 +1,41 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { IoIosArrowForward } from "react-icons/io";
+
 const Navigation = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [openCategories, setOpenCategories] = useState(false);
+  const drawerRef = useRef(null);
+  const navRef = useRef(null);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (drawerRef.current && !drawerRef.current.contains(event.target)) {
+        // Close the drawer
+        setOpenCategories(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [drawerRef]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setOpenMenu(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [navRef]);
+
   return (
     <>
       <div className="relative bg-gradient-to-r from-gray-100 to-white border-b-2 border-gray-100">
@@ -65,7 +95,10 @@ const Navigation = () => {
                   Categories
                 </button>
                 {openCategories && (
-                  <div className="absolute z-10 mt-8 bg-white shadow-lg border border-gray-200 rounded-md py-1">
+                  <div
+                    ref={drawerRef}
+                    className="absolute z-10 mt-8 bg-white shadow-lg border border-gray-200 rounded-md py-1"
+                  >
                     <Link
                       className="text-base font-medium text-gray-500 hover:text-white hover:bg-gradient-to-r from-purp to-green duration-300 block px-4 py-2"
                       href="/category/docj"
@@ -110,15 +143,15 @@ const Navigation = () => {
               </Link>
               <Link
                 className="text-base font-medium text-gray-500 hover:text-gray-900"
-                href="/blog"
+                href="/announcements"
               >
-                Blog
+                Announcements
               </Link>
               <Link
                 className="text-base font-medium text-gray-500 hover:text-gray-900"
-                href="/services"
+                href="/contact"
               >
-                Services
+                Contact
               </Link>
             </div>
           </div>
@@ -130,6 +163,7 @@ const Navigation = () => {
         {openMenu && (
           <div className="fixed inset-0 z-50 overflow-hidden">
             <div
+              ref={navRef}
               className={`absolute w-64 h-screen top-0 right-0 transition-transform transform origin-top-right duration-500 md:hidden ${
                 openMenu ? "translateX(0)" : "translateX(100%)"
               }`}
@@ -219,6 +253,16 @@ const Navigation = () => {
                         <button onClick={() => setOpenMenu(false)}>
                           <span className="ml-3 my-2 text-base font-medium">
                             About
+                          </span>
+                        </button>
+                      </Link>
+                      <Link
+                        href="/announcements"
+                        className="-m-3 p-3 my-2 flex items-center rounded-md "
+                      >
+                        <button onClick={() => setOpenMenu(false)}>
+                          <span className="ml-3 my-2 text-base font-medium">
+                            Announcements
                           </span>
                         </button>
                       </Link>

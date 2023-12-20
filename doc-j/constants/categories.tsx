@@ -1,4 +1,4 @@
-import { Category } from "../models/interfaces";
+import { Category } from "../app/models/interfaces";
 import {
   docJProducts,
   mogleeProducts,

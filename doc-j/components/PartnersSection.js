@@ -8,9 +8,21 @@ const PartnersSection = () => {
           Our Partners
         </h3>
         <div className="w-3/4 mx-auto grid grid-cols-1 md:grid-cols-3">
-          <Partner src={"/logos/moglee.jpeg"} alt={"Moglee Cultivated Logo"} />
-          <Partner src={"/logos/waterbear.jpg"} alt={"Waterbear Logo"} />
-          <Partner src={"/logos/gambles.jpg"} alt={"Gambles Goods Logo"} />
+          <Partner
+            src={"/logos/moglee.jpeg"}
+            alt={"Moglee Cultivated Logo"}
+            link={"/category/moglee"}
+          />
+          <Partner
+            src={"/logos/waterbear.jpg"}
+            alt={"Waterbear Logo"}
+            link={"/category/waterbear"}
+          />
+          <Partner
+            src={"/logos/gambles.jpg"}
+            alt={"Gambles Goods Logo"}
+            link={"/category/gambles"}
+          />
         </div>
       </div>
     </>

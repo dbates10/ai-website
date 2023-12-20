@@ -4,9 +4,15 @@ import { useState, useEffect } from "react";
 const AgeVerification = ({ children }) => {
   const [isVerified, setIsVerified] = useState(false);
   const [answerNo, setAnswerNo] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    const ageVerified = localStorage.getItem("ageVerified");
-    setIsVerified(ageVerified === "true");
+    const checkAgeVerification = () => {
+      const ageVerified = localStorage.getItem("ageVerified");
+      setIsVerified(ageVerified === "true");
+      setIsLoading(false);
+    };
+    checkAgeVerification();
   }, []);
 
   const handleVerification = (isOver21) => {
@@ -16,7 +22,9 @@ const AgeVerification = ({ children }) => {
     localStorage.setItem("ageVerified", isOver21);
     setIsVerified(isOver21);
   };
-
+  if (isLoading) {
+    return null; // Or return a minimal component that doesn't include the Age Verification
+  }
   if (!isVerified) {
     return (
       <div className="flex flex-col items-center justify-center h-screen bg-purp-dark text-white">

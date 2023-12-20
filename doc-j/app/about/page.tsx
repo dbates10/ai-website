@@ -1,7 +1,7 @@
 import React from "react";
 import TextWithImage from "@/components/TextWithImage";
 import TextBlock from "@/components/TextBlock";
-import ContactForm from "@/components/ContactForm";
+import ContactSection from "@/components/ContactSection";
 const AboutPage = () => {
   const content = {
     headline: "About Us",
@@ -19,7 +19,7 @@ const AboutPage = () => {
   return (
     <>
       <TextWithImage content={content} />
-      <ContactForm />
+      <ContactSection />
     </>
   );
 };

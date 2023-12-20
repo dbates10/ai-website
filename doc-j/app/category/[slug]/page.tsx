@@ -1,5 +1,5 @@
 import React from "react";
-import { categories } from "../../constants/categories";
+import { categories } from "../../../constants/categories";
 import Link from "next/link";
 import CategoryHero from "@/components/CategoryHero";
 import TextWithImage from "@/components/TextWithImage";
