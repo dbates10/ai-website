@@ -24,22 +24,28 @@ const Product = (props) => {
           />
         </div>
         <div
-          className={`flex w-full md:w-1/3 items-center flex-col justify-center my-8 ${
+          className={`flex w-full md:w-1/3 m-8 items-center flex-col justify-center ${
             props.alternate ? "order-1" : "order-2"
           }`}
         >
           <h1 className="flex mx-auto text-4xl text-center font-clone font-bold text-purp-dark">
             {name}
           </h1>
-          <p className="flex mx-auto text-sm text-center font-ibm my-4">
-            {description}
-          </p>
+          {description.map((paragraph, index) => (
+            <p
+              key={index}
+              className="flex mx-auto text-sm text-center font-ibm my-4"
+            >
+              {paragraph}
+            </p>
+          ))}
         </div>
       </div>
       <ImageGallery
         images={images}
         activeImage={activeImage}
         setActiveImage={setActiveImage}
+        alternate={props.alternate}
       />
     </>
   );

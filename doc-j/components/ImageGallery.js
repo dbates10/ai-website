@@ -9,7 +9,7 @@ const isTouchDevice = () => {
     navigator.msMaxTouchPoints > 0
   );
 };
-const ImageGallery = ({ images, activeImage, setActiveImage }) => {
+const ImageGallery = ({ images, activeImage, setActiveImage, alternate }) => {
   const swipeHandlers = useSwipeable({
     onSwipedLeft: () => changeImage(1),
     onSwipedRight: () => changeImage(-1),
@@ -38,7 +38,9 @@ const ImageGallery = ({ images, activeImage, setActiveImage }) => {
   return (
     <div
       {...(isTouchDevice() ? swipeHandlers : {})}
-      className="my-8 h-32 w-auto overflow-scroll overflow-x-auto overflow-y-hidden flex whitespace-nowrap"
+      className={`my-8 h-32 w-auto overflow-scroll overflow-x-auto overflow-y-hidden flex whitespace-nowrap ${
+        alternate ? "justify-end" : ""
+      }`}
     >
       {images.map((image, index) => (
         <div

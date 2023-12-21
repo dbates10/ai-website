@@ -76,8 +76,14 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-      <div className="flex justify-center py-2 bg-purp text-black mx-auto max-w-[1440px] text-center">
-        <p>© Copyright 2024 Doc J&apos;s Laboratory All Rights Reserved</p>
+      <div className="flex flex-row bg-purp">
+        <div className=" w-32"></div>
+        <div className="flex justify-center py-2 text-black w-full flex-1 max-w-[1440px] text-center">
+          <p>© Copyright 2024 Doc J&apos;s Laboratory All Rights Reserved</p>
+        </div>
+        <div className="flex justify-end py-2 w-32 flex-0 text-black mr-4 max-w-[1440px] text-right">
+          <Link href="/privacy-policy">Privacy Policy</Link>
+        </div>
       </div>
     </>
   );

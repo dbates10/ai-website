@@ -52,6 +52,7 @@ const Hero = () => {
     const interval = setInterval(() => {
       setCurrentSlide((currentSlide) => (currentSlide + 1) % slides.length);
     }, 5000);
+    console.log("currentSlide", currentSlide);
     return () => clearInterval(interval);
   }, []);
 
@@ -83,9 +84,11 @@ const Hero = () => {
                 <h2 className="text-3xl lg:text-5xl font-clone font-bold drop-shadow-image text-white">
                   {slides[currentSlide].headerText}
                 </h2>
-                <button className="px-4 py-2 mt-4 text-md font-ibm text-white bg-purp rounded">
-                  {slides[currentSlide].buttonText}
-                </button>
+                <Link href={slides[currentSlide].buttonTarget || "/"}>
+                  <button className="px-4 py-2 mt-4 text-md font-ibm text-white bg-purp rounded">
+                    {slides[currentSlide].buttonText}
+                  </button>
+                </Link>
               </div>
             </Container>
           </motion.div>
