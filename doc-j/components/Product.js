@@ -5,11 +5,11 @@ import ImageGallery from "@/components/ImageGallery";
 
 const Product = (props) => {
   const { product } = props;
-  const { name, mainImage, description, images } = product;
+  const { id, name, mainImage, description, images } = product;
   const [activeImage, setActiveImage] = useState(mainImage.url);
   return (
     <>
-      <div className="flex flex-col md:flex-row max-w-[1440px]">
+      <div id={id} className="flex flex-col md:flex-row max-w-[1440px]">
         <div
           className={`flex w-full md:w-2/3 ${
             props.alternate ? "order-2" : "order-1"

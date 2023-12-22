@@ -24,7 +24,7 @@ const PortfolioPage = (params: Params) => {
 
   return (
     <>
-      {/* <CategoryHero name={name} src={heroImage} alt={heroImageAlt} /> */}
+      <CategoryHero name={name} src={heroImage} alt={heroImageAlt} />
       <TextWithImage content={category} alternate />
       <ProductGallery products={products} />
       <Newsletter />

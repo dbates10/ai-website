@@ -1,24 +1,36 @@
 "use client";
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
+import { useForm as useFormspree, ValidationError } from "@formspree/react";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input/input";
 
 const ContactForm = () => {
-  const [submissionText, setSubmissionText] = useState("Submitting...");
-  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formspreeState, formSubmitHandler] = useFormspree("xjvnbpqv"); // Replace with your Formspree form ID
   const {
     register,
     handleSubmit,
     control,
     formState: { errors },
   } = useForm();
-
   const onSubmit = (data) => {
-    setFormSubmitted(true);
-    console.log(data);
-    // Process form data
+    formSubmitHandler(data);
   };
+
+  if (formspreeState.succeeded) {
+    return (
+      <div className="flex flex-col md:w-1/2 order-1 md:order-2 justify-center items-center">
+        <p className="text-md md:text-xl font-ibm font-bold text-purp-dark text-left md:text-center pt-4">
+          Thanks for reaching out! <br /> We will be in contact with you in the
+          next 1-2 business days.
+        </p>
+        <p className="text-md md:text-xl font-ibm font-bold text-purp-dark text-left md:text-center pt-4">
+          In the meantime, give us a follow on our social media accounts to see
+          what we&apos;ve been up to lately.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col md:w-1/2 order-1 md:order-2">
@@ -79,11 +91,16 @@ const ContactForm = () => {
         {errors.reason && (
           <span className="text-red-400">This field is required</span>
         )}
-        <button className="bg-purp-dark text-white py-2 rounded my-4 hover:bg-green">
-          <input type="submit" value="Submit" />
+        <button
+          type="submit"
+          disabled={formspreeState.submitting}
+          className="bg-purp-dark text-white py-2 rounded my-4 hover:bg-green"
+        >
+          Submit
         </button>
-        {formSubmitted && (
-          <span className="text-red-400">{submissionText}</span>
+
+        {formspreeState.errors && formspreeState.errors.length > 0 && (
+          <span className="text-red-400">Submission failed</span>
         )}
       </form>
     </div>

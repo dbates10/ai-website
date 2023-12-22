@@ -35,9 +35,7 @@ const Footer = () => {
               Email:
             </p>
             <p className="text-md font-thin font-ibm text-center md:text-left px-8 text-green ">
-              <a href="mailto: docjslaboratory@gmail.com">
-                Docjslaboratory@gmail.com
-              </a>
+              <a href="mailto: DoctorJ@docjslab.com">DoctorJ@DocJsLab.com </a>
             </p>
           </div>
         </div>
@@ -49,31 +47,34 @@ const Footer = () => {
               <FaInstagram /> Instagram Links:
             </span>
           </h4>
-          <Link href="https://www.instagram.com/docjs.laboratory/">
+          <a target="_blank" href="https://www.instagram.com/docjs.laboratory/">
             <p className="text-md font-thin font-ibm text-center md:text-left px-8 py-2 text-green ">
               @DocJs.Laboratory
             </p>
-          </Link>
-          <Link href="https://www.instagram.com/waterbearfarms/">
+          </a>
+          <a target="_blank" href="https://www.instagram.com/waterbearfarms/">
             <p className="text-md font-thin font-ibm text-center md:text-left px-8 py-2 text-green ">
               @WaterbearFarms
             </p>
-          </Link>
-          <Link href="https://www.instagram.com/moglee_cultivated_/">
+          </a>
+          <a
+            target="_blank"
+            href="https://www.instagram.com/moglee_cultivated_/"
+          >
             <p className="text-md font-thin font-ibm text-center md:text-left px-8 py-2 text-green ">
               @Moglee_Cultivated
             </p>
-          </Link>
-          <Link href="https://www.instagram.com/gamblesgoods/">
+          </a>
+          <a target="_blank" href="https://www.instagram.com/gamblesgoods/">
             <p className="text-md font-thin font-ibm text-center md:text-left px-8 py-2 text-green ">
               @GamblesGoods
             </p>
-          </Link>
-          <Link href="https://www.instagram.com/gamblesgarden_/">
+          </a>
+          <a target="_blank" href="https://www.instagram.com/gamblesgarden_/">
             <p className="text-md font-thin font-ibm text-center md:text-left px-8 py-2 text-green ">
               @GamblesGarden_
             </p>
-          </Link>
+          </a>
         </div>
       </div>
       <div className="flex flex-row bg-purp">

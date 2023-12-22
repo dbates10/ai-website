@@ -1,59 +1,73 @@
 "use client";
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/Container";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const slides = [
   {
-    src: "/top-down-plants.jpg",
-    alt: "heroimage",
+    src: "/doc-hero.jpg",
+    alt: "Doc J's Lab Hero Image",
     headerText: " Virginia’s Premier Cannabis Company.",
     subHeaderText: "Welcome to Doc J’s Laboratory:",
-    buttonText: "Learn More",
+    buttonText: "About Us",
     buttonTarget: "/about",
-    key: "image1",
+    key: "doc",
+  },
+  // {
+  //   src: "/heroimage.jpg",
+  //   alt: "heroimage",
+  //   headerText: "Tropical Tittiez",
+  //   subHeaderText: "Check Out Our Latest Drop:",
+  //   buttonText: "See the Gallery",
+  //   buttonTarget: "/category/docj/#tropical",
+  //   key: "tropical",
+  // },
+  {
+    src: "/moglee-hero.jpg",
+    alt: "Moglee Cultivated Hero Image",
+    headerText: "Moglee Cultivated",
+    subHeaderText: "Meet Our Partner and Homie",
+    buttonText: "Learn More",
+    buttonTarget: "/category/moglee",
+    key: "moglee",
   },
   {
-    src: "/heroimage.jpg",
-    alt: "heroimage",
-    headerText: "headerText",
-    subHeaderText: "",
-    buttonText: "Learn More",
-    buttonTarget: "/about",
-    key: "image2",
-  },
-  {
-    src: "/heroimage.jpg",
-    alt: "heroimage",
-    headerText: "headerText",
-    subHeaderText: "",
-    buttonText: "Learn More",
-    buttonTarget: "/about",
-    key: "image3",
-  },
-  {
-    src: "/heroimage.jpg",
-    alt: "heroimage",
-    headerText: "headerText",
-    subHeaderText: "",
-    buttonText: "Learn More",
-    buttonTarget: "/about",
-    key: "image4",
+    src: "/gambles-hero.jpg",
+    alt: "Gamble's Goods Hero Image",
+    headerText: "With Gamble's Goods",
+    subHeaderText: "It's Never a Gamble",
+    buttonText: "Check Out the Goods",
+    buttonTarget: "/category/gambles",
+    key: "gambles",
   },
 ];
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentSlide((currentSlide) => (currentSlide + 1) % slides.length);
+  //   }, 5000);
+  //   console.log("currentSlide", currentSlide);
+  //   return () => clearInterval(interval);
+  // }, []);
+
+  const changeSlide = (index, stopAutoCycle = false) => {
+    setCurrentSlide(index);
+    if (stopAutoCycle) {
+      clearInterval(autoCycleRef.current);
+    }
+  };
+  const autoCycleRef = useRef(null);
+
   useEffect(() => {
-    const interval = setInterval(() => {
+    autoCycleRef.current = setInterval(() => {
       setCurrentSlide((currentSlide) => (currentSlide + 1) % slides.length);
     }, 5000);
-    console.log("currentSlide", currentSlide);
-    return () => clearInterval(interval);
+    return () => clearInterval(autoCycleRef.current);
   }, []);
 
   return (
@@ -85,7 +99,7 @@ const Hero = () => {
                   {slides[currentSlide].headerText}
                 </h2>
                 <Link href={slides[currentSlide].buttonTarget || "/"}>
-                  <button className="px-4 py-2 mt-4 text-md font-ibm text-white bg-purp rounded">
+                  <button className="px-8 py-4 mt-4 text-md font-ibm font-bold uppercase text-white bg-purp rounded">
                     {slides[currentSlide].buttonText}
                   </button>
                 </Link>
@@ -93,6 +107,18 @@ const Hero = () => {
             </Container>
           </motion.div>
         </AnimatePresence>
+        <div className="absolute bottom-0 left-0 right-0 flex justify-center p-2">
+          {slides.map((_, index) => (
+            <div
+              key={index}
+              className={`mx-1 h-2 w-16 rounded-full cursor-pointer ${
+                currentSlide === index ? "bg-green" : "bg-purp-light"
+              }`}
+              onMouseOver={() => changeSlide(index)}
+              onClick={() => changeSlide(index, true)}
+            />
+          ))}
+        </div>
       </div>
     </>
   );

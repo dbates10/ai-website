@@ -1,19 +1,19 @@
 export const docJProducts = [
-  {
-    id: "tropical",
-    name: "Tropical Tittiez",
-    mainImage: { url: "/doc/tropical.jpg", alt: "Tropical Tittiez" },
-    description: [""],
-    images: [
-      { url: "/doc/tropical.jpg", alt: "Tropical Tittiez" },
-      { url: "/doc/tropical.jpg", alt: "Tropical Tittiez" },
-      { url: "/doc/tropical.jpg", alt: "Tropical Tittiez" },
-    ],
-    category: "docj",
-  },
+  // {
+  //   id: "tropical",
+  //   name: "Tropical Tittiez",
+  //   mainImage: { url: "/doc/tropical.jpg", alt: "Tropical Tittiez" },
+  //   description: [""],
+  //   images: [
+  //     { url: "/doc/tropical.jpg", alt: "Tropical Tittiez" },
+  //     { url: "/doc/tropical.jpg", alt: "Tropical Tittiez" },
+  //     { url: "/doc/tropical.jpg", alt: "Tropical Tittiez" },
+  //   ],
+  //   category: "docj",
+  // },
   {
     id: "marker",
-    name: "Permanent Marker",
+    name: "Permanent Marker BX1 #4",
     mainImage: { url: "/doc/marker/pm-1.jpg", alt: "Permanent Marker" },
     description: [""],
     images: [
@@ -25,7 +25,7 @@ export const docJProducts = [
   },
   {
     id: "michigan",
-    name: "Pure Michigan",
+    name: "Pure Michigan F2 #9",
     mainImage: { url: "/doc/michigan/pu-1.jpg", alt: "Pure Michigan" },
     description: [""],
     images: [
@@ -37,7 +37,7 @@ export const docJProducts = [
   },
   {
     id: "rs11",
-    name: "RS11",
+    name: "RS11 (Rainbow Sherbet #11)",
     mainImage: { url: "/doc/rs11/rs11-main.jpg", alt: "RS11" },
     description: [" "],
     images: [
