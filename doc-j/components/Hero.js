@@ -36,8 +36,8 @@ const slides = [
   {
     src: "/gambles-hero.jpg",
     alt: "Gamble's Goods Hero Image",
-    headerText: "With Gamble's Goods",
-    subHeaderText: "It's Never a Gamble",
+    headerText: " Gamble's Goods",
+    subHeaderText: "It's Never a Gamble With",
     buttonText: "Check Out the Goods",
     buttonTarget: "/category/gambles",
     key: "gambles",
