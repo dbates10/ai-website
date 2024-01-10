@@ -1,24 +1,21 @@
 /** 1. Tag it as a client component */
 "use client";
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
-import Page from "./Page";
-import Navigation from "./Navigation";
-import Hero from "./Hero";
-const token = process.env.NEXT_PUBLIC_STORYBLOK_API_TOKEN;
-const components = {
-  page: Page,
-  navigation: Navigation,
-  hero: Hero,
-};
+import Page from "@/components/Page";
+import Hero from "@/components/Hero";
+const token = process.env.STORYBLOK_API_TOKEN;
 
 /** 2. Initialize it as usual */
 storyblokInit({
   accessToken: token,
   apiOptions: {
     region: "us",
+    cache: { type: "none" },
   },
   use: [apiPlugin],
-  components,
+  // components: {
+  //   page: Page,
+  // },
 });
 
 export default function StoryblokProvider({

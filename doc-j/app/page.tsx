@@ -1,13 +1,12 @@
-import { getStoryblokApi } from "@storyblok/react/rsc";
-import { ISbStoriesParams } from "@storyblok/react";
-import StoryblokStory from "@storyblok/react/story";
-import Hero from "@/components/Hero";
-import Feature from "@/components/Feature";
-import TextWithImage from "@/components/TextWithImage";
-import PartnersSection from "@/components/PartnersSection";
-import Newsletter from "@/components/Newsletter";
-export default function Home() {
-  const content = {
+import {
+  getStoryblokApi,
+  StoryblokComponent,
+  StoryblokClient,
+  ISbStoriesParams,
+} from "@storyblok/react/rsc";
+
+export default async function Home() {
+  const TWIcontent = {
     headline: "Bringing a High-Quality Cannabis Experience to Virginia",
     description: [
       "Welcome to Doc J's Laboratory. We are at the heart of Virginia's finest cannabis exploration, meticulously crafted for connoisseurs like you. I'm Doc J, leading a team with a combined 50+ years of passion and expertise in cannabis. Our journey encompasses everything from cultivation to extraction, ensuring unparalleled quality.",
@@ -16,13 +15,28 @@ export default function Home() {
     image: "/doc-cultivating.jpg",
     imageAlt: "Doc J cultivating cannabis",
   };
+
+  const { data } = await fetchData();
+  const content = data.story.content;
+  console.log("retrieved content", content);
   return (
     <div>
-      <Hero />
-      <Feature />
-      <TextWithImage content={content} />
+      <StoryblokComponent blok={data.story.content} />
+      {/* <Hero data={content.hero_section} />
+      <Feature data={content.feature_section} />
+      <TextWithImage content={TWIcontent} />
       <PartnersSection />
-      <Newsletter />
+      <Newsletter /> */}
     </div>
   );
+}
+
+export async function fetchData() {
+  let sbParams: ISbStoriesParams = {
+    version: "draft",
+    resolve_relations: "global_reference.reference",
+  };
+
+  const storyblokApi: StoryblokClient = getStoryblokApi();
+  return storyblokApi.get(`cdn/stories/home`, sbParams);
 }
