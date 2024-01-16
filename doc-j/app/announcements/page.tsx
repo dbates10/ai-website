@@ -4,12 +4,10 @@ import {
   StoryblokClient,
   ISbStoriesParams,
 } from "@storyblok/react/rsc";
-import Container from "@/components/Container";
-import { announcements } from "@/constants/announcements";
-import Announcement from "@/components/Announcement";
-import Newsletter from "@/components/Newsletter";
+import { fetchData } from "@/constants/functions";
+
 const AnnouncementsPage = async () => {
-  const { data } = await fetchData();
+  const { data } = await fetchData("announcements");
   return (
     <>
       <div className="container px-8 mx-auto xl:px-0">
@@ -24,13 +22,3 @@ const AnnouncementsPage = async () => {
 };
 
 export default AnnouncementsPage;
-
-async function fetchData() {
-  let sbParams: ISbStoriesParams = {
-    version: "draft",
-    resolve_relations: "global_reference.reference",
-  };
-
-  const storyblokApi: StoryblokClient = getStoryblokApi();
-  return storyblokApi.get(`cdn/stories/announcements`, sbParams);
-}

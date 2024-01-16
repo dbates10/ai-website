@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Suspense } from "react";
 import {
   storyblokInit,
   apiPlugin,

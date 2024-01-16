@@ -2,14 +2,17 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { IoIosArrowForward } from "react-icons/io";
+import { usePathname } from "next/navigation";
 import MenuFolder from "./MenuFolder";
 import MenuLink from "./MenuLink";
-import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
-const Navigation = ({ blok }) => {
+import { storyblokEditable } from "@storyblok/react";
+const Navigation = ({ blok, params }) => {
   const [openMenu, setOpenMenu] = useState(false);
   const navRef = useRef(null);
-
+  const pathname = usePathname();
+  useEffect(() => {
+    setOpenMenu(false);
+  }, [pathname]);
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (navRef.current && !navRef.current.contains(event.target)) {
@@ -23,20 +26,7 @@ const Navigation = ({ blok }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [navRef]);
-  // Main navigation links
-  const mainLinks = [
-    { href: "/about", label: "About" },
-    { href: "/announcements", label: "Announcements" },
-    { href: "/contact", label: "Contact" },
-  ];
 
-  // Category links
-  const categoryLinks = [
-    { href: "/category/docj", label: "Doc J's Laboratory" },
-    { href: "/category/moglee", label: "Moglee Cultivated" },
-    { href: "/category/waterbear", label: "Waterbear Farms" },
-    { href: "/category/gambles", label: "Gamble's Goods" },
-  ];
   return (
     <>
       <div className="relative bg-gradient-to-r from-gray-100 to-white border-b-2 border-gray-100">

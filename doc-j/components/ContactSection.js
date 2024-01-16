@@ -6,7 +6,6 @@ import { storyblokEditable } from "@storyblok/react/rsc";
 import { StoryblokComponent } from "@storyblok/react";
 const ContactSection = ({ blok }) => {
   const { headline, main_text } = blok;
-  console.log(blok.contact_info);
   return (
     <div className="flex flex-col py-20 bg-[url(/swirl.svg)] bg-cover bg-no-repeat items-center justify-center">
       <div className="p-10 lg:w-3/4 bg-white bg-opacity-80 rounded-lg shadow-lg justify-center mx-2">

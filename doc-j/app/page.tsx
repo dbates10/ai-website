@@ -4,6 +4,7 @@ import {
   StoryblokClient,
   ISbStoriesParams,
 } from "@storyblok/react/rsc";
+import { fetchData } from "@/constants/functions";
 
 export default async function Home() {
   const TWIcontent = {
@@ -16,7 +17,7 @@ export default async function Home() {
     imageAlt: "Doc J cultivating cannabis",
   };
 
-  const { data } = await fetchData();
+  const { data } = await fetchData("home");
   const content = data.story.content;
   // console.log("retrieved content", data);
   return (
@@ -24,14 +25,4 @@ export default async function Home() {
       <StoryblokComponent blok={data.story.content} />
     </div>
   );
-}
-
-async function fetchData() {
-  let sbParams: ISbStoriesParams = {
-    version: "draft",
-    resolve_relations: "global_reference.reference",
-  };
-
-  const storyblokApi: StoryblokClient = getStoryblokApi();
-  return storyblokApi.get(`cdn/stories/home`, sbParams);
 }

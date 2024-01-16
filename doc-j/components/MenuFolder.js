@@ -1,11 +1,15 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import MenuLink from "./MenuLink";
+import { usePathname } from "next/navigation";
 
 const MenuFolder = ({ blok, screen }) => {
   const [isOpen, setIsOpen] = useState(false);
   const drawerRef = useRef(null);
-
+  const pathname = usePathname();
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (drawerRef.current && !drawerRef.current.contains(event.target)) {

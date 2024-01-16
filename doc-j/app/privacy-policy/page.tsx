@@ -5,8 +5,14 @@ import {
   StoryblokClient,
   ISbStoriesParams,
 } from "@storyblok/react/rsc";
+import { fetchData } from "@/constants/functions";
+interface Params {
+  params: {
+    slug: string;
+  };
+}
 const PrivacyPolicy = async () => {
-  const { data } = await fetchData();
+  const { data } = await fetchData("privacy-policy");
   return (
     <>
       <StoryblokComponent blok={data.story.content} />
@@ -16,12 +22,12 @@ const PrivacyPolicy = async () => {
 
 export default PrivacyPolicy;
 
-async function fetchData() {
-  let sbParams: ISbStoriesParams = {
-    version: "draft",
-    resolve_relations: "global_reference.reference",
-  };
+// async function fetchData() {
+//   let sbParams: ISbStoriesParams = {
+//     version: "draft",
+//     resolve_relations: "global_reference.reference",
+//   };
 
-  const storyblokApi: StoryblokClient = getStoryblokApi();
-  return storyblokApi.get(`cdn/stories/privacy-policy`, sbParams);
-}
+//   const storyblokApi: StoryblokClient = getStoryblokApi();
+//   return storyblokApi.get(`cdn/stories/privacy-policy`, sbParams);
+// }

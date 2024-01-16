@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { storyblokEditable } from "@storyblok/react/rsc";
 
 const MenuLink = ({ blok }) => {
   return (
