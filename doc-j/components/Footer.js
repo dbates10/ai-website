@@ -5,8 +5,7 @@ import { StoryblokComponent, storyblokEditable } from "@storyblok/react";
 import FooterContactInfo from "@/components/FooterContactInfo";
 
 const Footer = ({ blok }) => {
-  const { footer_menu, footer_message } = blok;
-
+  const { footer_menu, message } = blok;
   return (
     <>
       <div
@@ -17,11 +16,11 @@ const Footer = ({ blok }) => {
         <div className="flex flex-col w-full md:w-1/3">
           <h4 className="text-xl font-thin font-ibm text-center md:text-left px-8 py-8 my-auto">
             <IoWarning className="inline-block mr-2 align-middle" />
-            {footer_message}
+            {message}
           </h4>
         </div>
 
-        <FooterContactInfo blok={blok.footer_menu[0]} />
+        <FooterContactInfo blok={footer_menu[0]} />
       </div>
       <div className="flex flex-row bg-purp">
         <div className=" w-32"></div>

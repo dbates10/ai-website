@@ -1,4 +1,3 @@
-import React from "react";
 import {
   getStoryblokApi,
   StoryblokClient,
@@ -7,8 +6,7 @@ import {
 
 export async function fetchData(slug: String) {
   let sbParams: ISbStoriesParams = {
-    version: "draft",
-    resolve_relations: "global_reference.reference",
+    version: "published",
   };
 
   const storyblokApi: StoryblokClient = getStoryblokApi();

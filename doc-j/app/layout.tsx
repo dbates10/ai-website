@@ -30,11 +30,10 @@ import Products from "@/components/Products";
 import Product from "@/components/Product";
 import ImageGallery from "@/components/ImageGallery";
 import Markdown from "@/components/Markdown";
-export const revalidate = 0;
-const token = process.env.STORYBLOK_API_TOKEN;
-
+import { fetchData } from "@/constants/functions";
+export const revalidate = 60;
 storyblokInit({
-  accessToken: "Sa2Etr4kJGs53Kh77gG2Mgtt",
+  accessToken: "xjLzb2bkKJerJeQv1o5cUgtt",
   apiOptions: {
     region: "us",
   },
@@ -73,8 +72,8 @@ interface RootLayoutType {
 }
 
 export default async function RootLayout({ children }: RootLayoutType) {
-  const navData = await fetchNavData();
-  const footerData = await fetchFooterData();
+  const navData = await fetchData("/global/navigation");
+  const footerData = await fetchData("/global/footer");
   return (
     // <StoryblokProvider>
     <html lang="en">
@@ -89,24 +88,4 @@ export default async function RootLayout({ children }: RootLayoutType) {
     </html>
     // </StoryblokProvider>
   );
-}
-export async function fetchNavData() {
-  let sbParams: ISbStoriesParams = {
-    version: "draft",
-  };
-
-  const storyblokApi: StoryblokClient = getStoryblokApi();
-  return storyblokApi.get(`cdn/stories/global/navigation`, sbParams, {
-    cache: "no-store",
-  });
-}
-export async function fetchFooterData() {
-  let sbParams: ISbStoriesParams = {
-    version: "draft",
-  };
-
-  const storyblokApi: StoryblokClient = getStoryblokApi();
-  return storyblokApi.get(`cdn/stories/global/footer`, sbParams, {
-    cache: "no-store",
-  });
 }
