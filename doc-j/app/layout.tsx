@@ -28,7 +28,7 @@ import CategoryHero from "@/components/CategoryHero";
 import Products from "@/components/Products";
 import Product from "@/components/Product";
 import ImageGallery from "@/components/ImageGallery";
-import Container from "@/components/Container";
+import Markdown from "@/components/Markdown";
 export const revalidate = 0;
 const token = process.env.STORYBLOK_API_TOKEN;
 
@@ -58,6 +58,7 @@ storyblokInit({
     image_gallery: ImageGallery,
     products: Products,
     product: Product,
+    markdown: Markdown,
   },
 });
 

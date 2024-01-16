@@ -36,7 +36,7 @@ const PortfolioPage = async (params: Params) => {
 
 export default PortfolioPage;
 
-export async function fetchData(slug: String) {
+async function fetchData(slug: String) {
   let sbParams: ISbStoriesParams = {
     version: "draft",
     resolve_relations: "global_reference.reference",

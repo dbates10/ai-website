@@ -26,7 +26,7 @@ export default async function Home() {
   );
 }
 
-export async function fetchData() {
+async function fetchData() {
   let sbParams: ISbStoriesParams = {
     version: "draft",
     resolve_relations: "global_reference.reference",
