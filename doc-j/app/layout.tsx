@@ -3,8 +3,11 @@ import {
   storyblokInit,
   apiPlugin,
   StoryblokBridgeLoader,
+  getStoryblokApi,
+  ISbStoriesParams,
+  StoryblokComponent,
 } from "@storyblok/react/rsc";
-import StoryblokProvider from "../components/StoryblokProvider";
+import StoryblokClient from "storyblok-js-client";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import AgeVerification from "@/components/AgeVerification";
@@ -17,7 +20,16 @@ import Newsletter from "@/components/Newsletter";
 import ContactSection from "@/components/ContactSection";
 import InstagramLink from "@/components/InstagramLink";
 import ContactInfo from "@/components/ContactInfo";
-export const revalidate = 0; // revalidate at most every hour
+import MenuFolder from "@/components/MenuFolder";
+import MenuLink from "@/components/MenuLink";
+import Announcements from "@/components/Announcements";
+import Announcement from "@/components/Announcement";
+import CategoryHero from "@/components/CategoryHero";
+import Products from "@/components/Products";
+import Product from "@/components/Product";
+import ImageGallery from "@/components/ImageGallery";
+import Container from "@/components/Container";
+export const revalidate = 0;
 const token = process.env.STORYBLOK_API_TOKEN;
 
 storyblokInit({
@@ -37,6 +49,15 @@ storyblokInit({
     contact_info: ContactInfo,
     instagram_link: InstagramLink,
     footer: Footer,
+    navigation: Navigation,
+    menu_folder: MenuFolder,
+    menu_link: MenuLink,
+    announcements: Announcements,
+    announcement: Announcement,
+    category_hero: CategoryHero,
+    image_gallery: ImageGallery,
+    products: Products,
+    product: Product,
   },
 });
 
@@ -49,19 +70,41 @@ interface RootLayoutType {
   children: React.ReactNode;
 }
 
-export default function RootLayout({ children }: RootLayoutType) {
+export default async function RootLayout({ children }: RootLayoutType) {
+  const navData = await fetchNavData();
+  const footerData = await fetchFooterData();
   return (
     // <StoryblokProvider>
     <html lang="en">
       <body>
         <AgeVerification>
-          <Navigation />
-          {children}
-          <Footer />
+          <StoryblokComponent blok={navData.data.story.content} />
+          <div className="max-w-[1400px] mx-auto">{children}</div>
+          <StoryblokComponent blok={footerData.data.story.content} />
         </AgeVerification>
       </body>
       <StoryblokBridgeLoader options={{}} />
     </html>
     // </StoryblokProvider>
   );
+}
+export async function fetchNavData() {
+  let sbParams: ISbStoriesParams = {
+    version: "draft",
+  };
+
+  const storyblokApi: StoryblokClient = getStoryblokApi();
+  return storyblokApi.get(`cdn/stories/global/navigation`, sbParams, {
+    cache: "no-store",
+  });
+}
+export async function fetchFooterData() {
+  let sbParams: ISbStoriesParams = {
+    version: "draft",
+  };
+
+  const storyblokApi: StoryblokClient = getStoryblokApi();
+  return storyblokApi.get(`cdn/stories/global/footer`, sbParams, {
+    cache: "no-store",
+  });
 }

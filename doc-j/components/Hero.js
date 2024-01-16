@@ -5,56 +5,10 @@ import Container from "@/components/Container";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { storyblokEditable } from "@storyblok/react/rsc";
-// const slides = [
-//   {
-//     src: "/doc-hero.jpg",
-//     alt: "Doc J's Lab Hero Image",
-//     headerText: " Virginia’s Premier Cannabis Company.",
-//     subHeaderText: "Welcome to Doc J’s Laboratory:",
-//     buttonText: "About Us",
-//     buttonTarget: "/about",
-//     key: "doc",
-//   },
-//   // {
-//   //   src: "/heroimage.jpg",
-//   //   alt: "heroimage",
-//   //   headerText: "Tropical Tittiez",
-//   //   subHeaderText: "Check Out Our Latest Drop:",
-//   //   buttonText: "See the Gallery",
-//   //   buttonTarget: "/category/docj/#tropical",
-//   //   key: "tropical",
-//   // },
-//   {
-//     src: "/moglee-hero.jpg",
-//     alt: "Moglee Cultivated Hero Image",
-//     headerText: "Moglee Cultivated",
-//     subHeaderText: "Meet Our Partner and Homie",
-//     buttonText: "Learn More",
-//     buttonTarget: "/category/moglee",
-//     key: "moglee",
-//   },
-//   {
-//     src: "/gambles-hero.jpg",
-//     alt: "Gamble's Goods Hero Image",
-//     headerText: " Gamble's Goods",
-//     subHeaderText: "It's Never a Gamble With",
-//     buttonText: "Check Out the Goods",
-//     buttonTarget: "/category/gambles",
-//     key: "gambles",
-//   },
-// ];
 
 const Hero = ({ blok }) => {
-  const slides = blok.slide;
+  const slides = blok.slideshow;
   const [currentSlide, setCurrentSlide] = useState(0);
-
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCurrentSlide((currentSlide) => (currentSlide + 1) % slides.length);
-  //   }, 5000);
-  //   console.log("currentSlide", currentSlide);
-  //   return () => clearInterval(interval);
-  // }, []);
 
   const changeSlide = (index, stopAutoCycle = false) => {
     setCurrentSlide(index);

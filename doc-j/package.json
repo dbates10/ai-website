@@ -20,7 +20,8 @@
     "react-icons": "^4.12.0",
     "react-markdown": "^9.0.1",
     "react-phone-number-input": "^3.3.7",
-    "react-swipeable": "^7.0.1"
+    "react-swipeable": "^7.0.1",
+    "storyblok-js-client": "^6.6.2"
   },
   "devDependencies": {
     "@storyblok/react": "^3.0.0",

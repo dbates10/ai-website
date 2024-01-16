@@ -52,6 +52,7 @@ const Newsletter = ({ blok }) => {
   return (
     <>
       <div
+        id="newsletter"
         {...storyblokEditable(blok)}
         className="flex flex-col py-20 bg-[url(/swirl.svg)] bg-cover bg-no-repeat items-center justify-center"
       >

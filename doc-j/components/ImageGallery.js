@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { useSwipeable } from "react-swipeable";
+import { storyblokEditable } from "@storyblok/react/rsc";
 const isTouchDevice = () => {
   return (
     "ontouchstart" in window ||
@@ -9,7 +10,8 @@ const isTouchDevice = () => {
     navigator.msMaxTouchPoints > 0
   );
 };
-const ImageGallery = ({ images, activeImage, setActiveImage, alternate }) => {
+const ImageGallery = ({ blok, activeImage, setActiveImage, alternate }) => {
+  const { images } = blok;
   const swipeHandlers = useSwipeable({
     onSwipedLeft: () => changeImage(1),
     onSwipedRight: () => changeImage(-1),
@@ -22,21 +24,22 @@ const ImageGallery = ({ images, activeImage, setActiveImage, alternate }) => {
       let currentIndex = images.indexOf(activeImage);
       let nextIndex =
         (currentIndex + direction + images.length) % images.length;
-      setActiveImage(images[nextIndex].url);
+      setActiveImage(images[nextIndex].filename);
     }
   };
 
   const handleImageClick = (image) => {
-    setActiveImage(image.url);
+    setActiveImage(image.filename);
   };
 
   const handleImageHover = (image) => {
-    console.log("Hovering over image:", image.url);
-    setActiveImage(image.url);
+    console.log("Hovering over image:", image.filename);
+    setActiveImage(image.filename);
   };
 
   return (
     <div
+      {...storyblokEditable(blok)}
       {...(isTouchDevice() ? swipeHandlers : {})}
       className={`my-8 h-32 w-auto overflow-scroll overflow-x-auto overflow-y-hidden flex whitespace-nowrap ${
         alternate ? "justify-end" : ""
@@ -49,7 +52,7 @@ const ImageGallery = ({ images, activeImage, setActiveImage, alternate }) => {
           onClick={() => handleImageClick(image)}
         >
           <Image
-            src={image.url}
+            src={image.filename}
             alt={image.alt}
             width={160}
             height={128}

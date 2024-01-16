@@ -11,8 +11,8 @@ const TextWithImage = ({ blok }) => {
     description,
     image: { filename, alt },
     alternate,
+    fit_image,
   } = blok;
-
   // Conditional class to control the order based on 'alternate' prop
   const orderClass = alternate ? "md:order-last" : "";
 
@@ -40,7 +40,9 @@ const TextWithImage = ({ blok }) => {
         {/* Image Section */}
         <div className="flex flex-col w-full md:w-1/2">
           <Image
-            className={`object-cover object-center w-full h-full`}
+            className={`${
+              fit_image ? "object-contain" : "object-cover"
+            } object-center w-full h-full`}
             src={filename}
             alt={alt}
             height={900}

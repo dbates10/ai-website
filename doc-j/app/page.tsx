@@ -18,15 +18,10 @@ export default async function Home() {
 
   const { data } = await fetchData();
   const content = data.story.content;
-  console.log("retrieved content", content);
+  // console.log("retrieved content", data);
   return (
     <div>
       <StoryblokComponent blok={data.story.content} />
-      {/* <Hero data={content.hero_section} />
-      <Feature data={content.feature_section} />
-      <TextWithImage content={TWIcontent} />
-      <PartnersSection />
-      <Newsletter /> */}
     </div>
   );
 }
