@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/StoryblokProvider.js", "components/Teaser.js", "components/Page.js", "components/Grid.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/StoryblokProvider.js", "components/Teaser.js", "components/Page.js", "components/Grid.js", "app/api/newsletter/preview/route.js"],
   "exclude": ["node_modules"]
 }

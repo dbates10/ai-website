@@ -1,5 +1,4 @@
 import "./globals.css";
-import { Suspense } from "react";
 import {
   storyblokInit,
   apiPlugin,
@@ -31,9 +30,9 @@ import Product from "@/components/Product";
 import ImageGallery from "@/components/ImageGallery";
 import Markdown from "@/components/Markdown";
 import { fetchData } from "@/constants/functions";
-export const revalidate = 60;
+
 storyblokInit({
-  accessToken: "xjLzb2bkKJerJeQv1o5cUgtt",
+  accessToken: "Sa2Etr4kJGs53Kh77gG2Mgtt",
   apiOptions: {
     region: "us",
   },
@@ -72,16 +71,12 @@ interface RootLayoutType {
 }
 
 export default async function RootLayout({ children }: RootLayoutType) {
-  const navData = await fetchData("/global/navigation");
-  const footerData = await fetchData("/global/footer");
   return (
     // <StoryblokProvider>
     <html lang="en">
       <body>
         <AgeVerification>
-          <StoryblokComponent blok={navData.data.story.content} />
           <div className="max-w-[1400px] mx-auto">{children}</div>
-          <StoryblokComponent blok={footerData.data.story.content} />
         </AgeVerification>
       </body>
       <StoryblokBridgeLoader options={{}} />

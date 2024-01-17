@@ -1,6 +1,7 @@
 import React from "react";
 import { fetchData } from "@/constants/functions";
 import { StoryblokComponent } from "@storyblok/react/rsc";
+
 const SlugPage = async ({ params }: { params: { slug: string } }) => {
   // Extract slug from params
   const { slug } = params;
