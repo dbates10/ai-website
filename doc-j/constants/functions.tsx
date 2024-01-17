@@ -12,7 +12,6 @@ export async function fetchData(slug: string) {
   let sbParams: ISbStoriesParams = {
     version: version,
   };
-  console.log(isEnabled);
   const storyblokApi: StoryblokClient = getStoryblokApi();
   return storyblokApi.get(`cdn/stories/${slug}`, sbParams);
 }
