@@ -16,6 +16,7 @@ import Hero from "@/components/Hero";
 import Feature from "@/components/Feature";
 import TextWithImage from "@/components/TextWithImage";
 import PartnersSection from "@/components/PartnersSection";
+import Partner from "@/components/Partner";
 import Newsletter from "@/components/Newsletter";
 import ContactSection from "@/components/ContactSection";
 import InstagramLink from "@/components/InstagramLink";
@@ -30,7 +31,7 @@ import Product from "@/components/Product";
 import ImageGallery from "@/components/ImageGallery";
 import Markdown from "@/components/Markdown";
 import { fetchData } from "@/constants/functions";
-
+export const revalidate = 60;
 storyblokInit({
   accessToken: "Sa2Etr4kJGs53Kh77gG2Mgtt",
   apiOptions: {
@@ -43,6 +44,7 @@ storyblokInit({
     feature: Feature,
     image_with_text: TextWithImage,
     partners: PartnersSection,
+    partner: Partner,
     newsletter: Newsletter,
     contact: ContactSection,
     contact_info: ContactInfo,
