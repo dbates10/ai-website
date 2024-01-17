@@ -1,8 +1,10 @@
 "use client";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { storyblokEditable } from "@storyblok/react/rsc";
 
-const Newsletter = () => {
+const Newsletter = ({ blok }) => {
+  const { headline, subtext, button_text } = blok;
   const [isSubscribed, setIsSubscribed] = useState(false);
   const {
     register,
@@ -49,13 +51,17 @@ const Newsletter = () => {
 
   return (
     <>
-      <div className="flex flex-col py-20 bg-[url(/swirl.svg)] bg-cover bg-no-repeat items-center justify-center">
+      <div
+        id="newsletter"
+        {...storyblokEditable(blok)}
+        className="flex flex-col py-20 bg-[url(/swirl.svg)] bg-cover bg-no-repeat items-center justify-center"
+      >
         <div className="p-4 md:p-10 bg-white bg-opacity-80 rounded-lg shadow-lg justify-center">
           <h3 className="text-7xl uppercase font-clone font-extrabold text-purp-dark text-center">
-            Never miss a drop
+            {headline}{" "}
           </h3>
           <h3 className="text-xl font-ibm font-bold text-purp-dark text-center">
-            Join the Doc J&apos;s Newsletter for the latest from the Lab.
+            {subtext}{" "}
           </h3>
           {isSubscribed ? (
             <div className="text-center">
@@ -107,7 +113,7 @@ const Newsletter = () => {
                 type="submit"
                 className="bg-purp-dark text-white p-2 rounded-lg border-2 border-purp-dark mt-4"
               >
-                Subscribe
+                {button_text}
               </button>
             </form>
           )}
