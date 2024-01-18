@@ -70,7 +70,7 @@ const Hero = ({ blok }) => {
             <div
               key={index}
               className={`mx-1 h-2 w-16 rounded-full cursor-pointer ${
-                currentSlide === index ? "bg-green" : "bg-purp-light"
+                currentSlide === index ? "bg-green" : "bg-purp"
               }`}
               onMouseOver={() => changeSlide(index)}
               onClick={() => changeSlide(index, true)}

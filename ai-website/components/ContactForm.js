@@ -14,7 +14,7 @@ const ContactForm = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    formSubmitHandler(data);
+    reset();
   };
 
   if (formspreeState.succeeded) {

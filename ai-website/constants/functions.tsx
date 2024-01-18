@@ -10,7 +10,7 @@ export async function fetchData(slug: string) {
   let version: "draft" | "published" = isEnabled ? "draft" : "published";
 
   let sbParams: ISbStoriesParams = {
-    version: version,
+    version: "draft",
   };
   const storyblokApi: StoryblokClient = getStoryblokApi();
   return storyblokApi.get(`cdn/stories/${slug}`, sbParams);

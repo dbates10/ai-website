@@ -1,11 +1,14 @@
+import React from "react";
 import { StoryblokComponent } from "@storyblok/react/rsc";
 import { fetchData } from "@/constants/functions";
 
-const PortfolioPage = async ({ params }: { params: { slug: string } }) => {
-  // Extract slug from params
+export default async function Destinations({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const { slug } = params;
-  // Fetch the data from Storyblok
-  const { data } = await fetchData(`categories/${slug}`);
+  const { data } = await fetchData(`destinations-tours/${slug}`);
   const navData = await fetchData("/global/navigation");
   const footerData = await fetchData("/global/footer");
   // console.log("retrieved content", data);
@@ -16,6 +19,4 @@ const PortfolioPage = async ({ params }: { params: { slug: string } }) => {
       <StoryblokComponent blok={footerData.data.story.content} />
     </div>
   );
-};
-
-export default PortfolioPage;
+}

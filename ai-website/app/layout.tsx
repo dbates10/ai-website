@@ -31,9 +31,9 @@ import Product from "@/components/Product";
 import ImageGallery from "@/components/ImageGallery";
 import Markdown from "@/components/Markdown";
 import { fetchData } from "@/constants/functions";
-export const revalidate = 60;
+export const revalidate = 0;
 storyblokInit({
-  accessToken: "Sa2Etr4kJGs53Kh77gG2Mgtt",
+  accessToken: "RjUXgWrfeSzxWXV0KARomQtt",
   apiOptions: {
     region: "us",
   },
@@ -64,9 +64,9 @@ storyblokInit({
 });
 
 export const metadata = {
-  title: "Doc J's Laboratory",
+  title: "Wanderlust Voyages",
   description:
-    "Welcome to the Laboratory. I’m Doc J and I’m here to bring Virginia an exceptionally curated craft cannabis experience. ",
+    "Discover the world with Wanderlust Voyages, your premier travel and adventure agency. Specializing in curated, unforgettable journeys, we bring your dream destinations to life. From exotic tropical retreats to thrilling mountain expeditions, our expertly crafted itineraries are designed to offer unique, immersive experiences.",
 };
 interface RootLayoutType {
   children: React.ReactNode;
@@ -77,9 +77,7 @@ export default async function RootLayout({ children }: RootLayoutType) {
     // <StoryblokProvider>
     <html lang="en">
       <body>
-        <AgeVerification>
-          <div className="max-w-[1400px] mx-auto">{children}</div>
-        </AgeVerification>
+        <div className="max-w-[1400px] mx-auto">{children}</div>
       </body>
       <StoryblokBridgeLoader options={{}} />
     </html>

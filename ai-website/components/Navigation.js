@@ -36,18 +36,11 @@ const Navigation = ({ blok, params }) => {
               <Link href="/">
                 <span className="sr-only">Doc J&apos;s Lab</span>
                 <Image
-                  className="h-20 w-auto sm:h-10 hidden sm:block"
-                  src="/logo.svg"
+                  className="h-32 w-auto sm:block"
+                  src="/logo.png"
                   alt="Storyblok"
-                  height={80}
-                  width={150}
-                />
-                <Image
-                  className="h-10 w-auto sm:hidden"
-                  src="/logo.svg"
-                  alt="Storyblok"
-                  height={80}
-                  width={150}
+                  height={300}
+                  width={300}
                 />
               </Link>
             </div>

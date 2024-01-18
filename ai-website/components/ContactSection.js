@@ -7,7 +7,7 @@ import { StoryblokComponent } from "@storyblok/react";
 const ContactSection = ({ blok }) => {
   const { headline, main_text } = blok;
   return (
-    <div className="flex flex-col py-20 bg-[url(/swirl.svg)] bg-cover bg-no-repeat items-center justify-center">
+    <div className="flex flex-col py-20 bg-[url(/newsletter-backdrop.png)] bg-cover bg-no-repeat items-center justify-center">
       <div className="p-10 lg:w-3/4 bg-white bg-opacity-80 rounded-lg shadow-lg justify-center mx-2">
         <div {...storyblokEditable(blok)}>
           <h3 className="text-5xl md:text-7xl uppercase font-clone font-extrabold text-purp-dark text-left md:text-center">

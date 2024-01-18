@@ -1,17 +1,22 @@
 import React from "react";
-import { StoryblokComponent } from "@storyblok/react/rsc";
 import { fetchData } from "@/constants/functions";
+import { StoryblokComponent } from "@storyblok/react/rsc";
 
-export default async function About() {
-  const { data } = await fetchData("about");
+const Resources = async ({ params }: { params: { slug: string } }) => {
+  // Extract slug from params
+  const { slug } = params;
+  // Fetch the data from Storyblok
+  const { data } = await fetchData("resources");
   const navData = await fetchData("/global/navigation");
   const footerData = await fetchData("/global/footer");
-  // console.log("retrieved content", data);
+  if (!data) return <div>404</div>;
   return (
-    <div>
+    <>
       <StoryblokComponent blok={navData.data.story.content} />
       <StoryblokComponent blok={data.story.content} />
       <StoryblokComponent blok={footerData.data.story.content} />
-    </div>
+    </>
   );
-}
+};
+
+export default Resources;

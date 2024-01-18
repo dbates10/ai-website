@@ -24,7 +24,7 @@ const Product = ({ blok, alternate }) => {
         className="flex flex-col md:flex-row max-w-[1440px]"
       >
         <div
-          className={`flex w-full md:w-2/3 aspect-[4/3] ${
+          className={`flex w-full aspect-[4/3] ${
             alternate ? "order-2" : "order-1"
           }`}
         >
@@ -45,7 +45,7 @@ const Product = ({ blok, alternate }) => {
           </AnimatePresence>
         </div>
 
-        <div
+        {/* <div
           className={`flex w-full md:w-1/3 my-8 md:mx-8 items-center flex-col justify-center ${
             alternate ? "order-1" : "order-2"
           }`}
@@ -56,7 +56,7 @@ const Product = ({ blok, alternate }) => {
           <ReactMarkdown className="prose flex flex-col mx-auto text-sm text-center font-ibm my-4">
             {description}
           </ReactMarkdown>
-        </div>
+        </div> */}
       </div>
       {gallery.map((nestedBlok, index) => {
         return (

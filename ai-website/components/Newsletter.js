@@ -16,30 +16,7 @@ const Newsletter = ({ blok }) => {
 
   const onSubmit = async (data) => {
     console.log("submitted data", data);
-    try {
-      const response = await fetch("/api/newsletter", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: data.email,
-          ...(data.receiveTextUpdates && { phone: data.phoneNumber }),
-        }),
-      });
-
-      const result = await response.json();
-      if (response.ok) {
-        setIsSubscribed(true);
-        reset();
-      } else {
-        console.error("Subscription failed:", result);
-        alert(`Subscription failed: ${result.message}`);
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("Error submitting form.");
-    }
+    reset();
   };
 
   const handleAddAnotherEmail = () => {
@@ -54,14 +31,14 @@ const Newsletter = ({ blok }) => {
       <div
         id="newsletter"
         {...storyblokEditable(blok)}
-        className="flex flex-col py-20 bg-[url(/swirl.svg)] bg-cover bg-no-repeat items-center justify-center"
+        className="mt-12 flex flex-col py-20 bg-[url(/newsletter-backdrop.png)] bg-cover bg-no-repeat items-center justify-center"
       >
-        <div className="p-4 md:p-10 bg-white bg-opacity-80 rounded-lg shadow-lg justify-center">
-          <h3 className="text-7xl uppercase font-clone font-extrabold text-purp-dark text-center">
-            {headline}{" "}
+        <div className="p-4 md:p-10 w-auto md:w-3/4 bg-white bg-opacity-80 rounded-lg shadow-lg justify-center">
+          <h3 className="text-4xl md:text-7xl uppercase font-clone font-extrabold text-purp-dark text-center">
+            {headline}
           </h3>
           <h3 className="text-xl font-ibm font-bold text-purp-dark text-center">
-            {subtext}{" "}
+            {subtext}
           </h3>
           {isSubscribed ? (
             <div className="text-center">

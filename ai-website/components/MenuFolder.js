@@ -25,10 +25,10 @@ const MenuFolder = ({ blok, screen }) => {
 
   if (screen === "desktop") {
     return (
-      <div className="relative">
+      <div className="relative ">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="font-clone text-gray-500 hover:text-gray-900"
+          className="font-clone text-gray-500 hover:text-gray-900 whitespace-nowrap"
         >
           {blok.name}
         </button>

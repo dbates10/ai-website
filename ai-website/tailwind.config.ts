@@ -8,22 +8,19 @@ const config: Config = {
   ],
   theme: { 
     fontFamily: {
-      clone: ['clone-rounded-pe', 'sans-serif'],
-      tachyon: ['tachyon', 'sans-serif'],
-      ibm: ['ibm-plex-mono', 'sans-serif'],
-      omnium: ['omnium', 'sans-serif'],
-      omniWide: ['omnium-wide', 'sans-serif'],
+      clone: ['lora', 'sans-serif'],
+      ibm: ['roboto', 'sans-serif'],
 
     },
     extend: {
       colors: {
-        'purp': "#9857A3",
+        'purp': "#008eac",
         'purp-light': "#C19AC8",
-        'purp-dark': "#4C2C52",
-        'purp-deep': "#261629",
-        'green' : "#5DBD77",
-        'green-light': "#A0D4A8",
-        'green-dark': "#172F1E",
+        'purp-dark': "#004756",
+        'purp-deep': "#002f39",
+        'green' : "#ffba08",
+        'green-light': "#ffff0c",
+        'green-dark': "#bf8b06",
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
