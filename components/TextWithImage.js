@@ -30,7 +30,7 @@ const TextWithImage = ({ blok }) => {
             {headline}
           </h1>
           <div className="h-1 bg-gradient-to-r from-green to-purp mx-4 md:mx-8"></div>
-          <div className="prose  text-lg font-thin font-ibm text-center md:text-left px-4 md:px-8 py-4">
+          <div className="prose  text-lg font-ibm text-center md:text-left px-4 md:px-8 py-4">
             <ReactMarkdown className="markdown-content">
               {description}
             </ReactMarkdown>

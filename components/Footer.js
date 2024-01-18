@@ -10,7 +10,7 @@ const Footer = ({ blok }) => {
     <>
       <div
         {...storyblokEditable(blok)}
-        className="w-screen mx-auto max-w-[1440px] bg-purp-dark text-white flex flex-col md:flex-row items-start"
+        className="w-screen mx-auto max-w-[1400px] bg-purp-dark text-white flex flex-col md:flex-row items-start"
       >
         {/* Disclaimer */}
         <div className="flex flex-col w-full md:w-1/2">
